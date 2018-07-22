@@ -30,7 +30,8 @@ for PKG in ${PACKAGES}; do
       -e "E: Dependency .* detected .*/plugins/libxineliboutput-" \
       -e "xineliboutput-frontends" \
       -e "kodi-addon-graphlcd E: ELF file .* outside of a valid path" \
-      -e "dkms W: File (usr/src.* exists in a non-standard directory")
+      -e "dkms W: File (usr/src.* exists in a non-standard directory" \
+      -e "kodi-dev-pre-release E: Dependency python2")
     echo "$REPORT" >&2
     if grep -q 'E:' <<<"$REPORT"; then
       echo "namcap error in $PKG!" >&2
