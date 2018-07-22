@@ -2,17 +2,17 @@
 
 # Maintainer: Christopher Reimer <mail+vdr4arch[at]c-reimer[dot]de>
 pkgname=kodi-addon-pvr-vdr-vnsi
-pkgver=2.6.27
+pkgver=3.5.4
 # Note: Use commits from "Krypton" branch for Kodi 17
-_gitver=1ebc4c9b77921d13333e093ffcf8744ca71eaa72
+_gitver=18c7474e3c33bde7b6cda82dcef58f58aaca8132
 pkgrel=1
 url="https://github.com/kodi-pvr/pvr.vdr.vnsi"
 arch=('x86_64' 'i686' 'armv6h' 'armv7h')
 license=('GPL2')
 pkgdesc="PVR add-on for XBMC to add VDR as a TV/PVR Backend"
-depends=('kodi')
+depends=('kodi-pre-release')
 makedepends=('cmake' 'git' 'kodi-dev' 'kodi-platform')
-source=("git+https://github.com/kodi-pvr/pvr.vdr.vnsi.git#commit=$_gitver")
+source=("git+https://github.com/FernetMenta/pvr.vdr.vnsi.git#commit=$_gitver")
 md5sums=('SKIP')
 
 pkgver() {
