@@ -6,7 +6,7 @@ pkgver=3.6.0
 # Note: Use commits from "Krypton" branch for Kodi 17
 _gitver=bb4fb3083d146f34cad54f2fc9f99e73138d962c
 pkgrel=1
-url="https://github.com/kodi-pvr/pvr.vdr.vnsi"
+url="https://github.com/FernetMenta/pvr.vdr.vnsi/"
 arch=('x86_64' 'i686' 'armv6h' 'armv7h')
 license=('GPL2')
 pkgdesc="PVR add-on for XBMC to add VDR as a TV/PVR Backend"
