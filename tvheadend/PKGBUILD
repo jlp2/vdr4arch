@@ -23,7 +23,7 @@ source=("https://github.com/tvheadend/tvheadend/archive/v$pkgver.tar.gz"
         "0001-ffmpeg-3.5-fixes.patch"
 )
 sha256sums=('09b4d4ff436a2006001ef3c3f38553dc4db3ea31bf9871b046a33180a0e8a8b9'
-            '84f4352340833a370805611e15b62696e62d359024b7b063e7f2f713a31e311b'
+            '0fba50a4d8993aa32815ffcc7eac6b372a85f3334bd804571cc6c6cf0795fff1'
             '0481d7ab443639d2ffc2e13e7f3207b1489fafbe605b9fbe50d3a8d44acf5a38')
 
 prepare() {
