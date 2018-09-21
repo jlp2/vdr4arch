@@ -3,9 +3,12 @@ Description=Tvheadend - a TV streaming server and DVR
 After=syslog.target network.target auditd.service
 
 [Service]
-ExecStart=/usr/bin/tvheadend -f -p /var/run/tvheadend.pid -C -u hts -g video
-PIDFile=/var/run/tvheadend.pid
-Type=forking
+User=hts
+Group=video
+AmbientCapabilities=CAP_SYS_TIME
+RuntimeDirectory=tvheadend
+ExecStart=/usr/bin/tvheadend -f -p /run/tvheadend/tvheadend.pid -C -u hts -g video
+PIDFile=/run/tvheadend/tvheadend.pid
 Restart=on-failure
 RestartSec=54s
 
