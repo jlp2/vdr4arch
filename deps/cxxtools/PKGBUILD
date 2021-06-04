@@ -1,28 +1,32 @@
-# This PKGBUILD is part of the VDR4Arch project [https://github.com/vdr4arch]
-
-# Maintainer: Christopher Reimer <mail+vdr4arch[at]c-reimer[dot]de>
 pkgname=cxxtools
-pkgver=3.0
+pkgver=2.3rc1.r4.ge0ddfff
 pkgrel=1
-pkgdesc="Collection of general-purpose C++ classes"
-url="http://www.tntnet.org"
-arch=('x86_64' 'i686' 'arm' 'armv6h' 'armv7h')
-license=('GPL2')
-depends=('bash' 'gcc-libs' 'libnsl')
-source=("http://www.tntnet.org/download/${pkgname}-${pkgver}.tar.gz")
-sha256sums=('07b18037fb0983f6292f5c8d53e2369e9e7a9711df2c9ad50838aacbc8c62f7c')
+pkgdesc="A collection of general-purpose C++ classes"
+arch=('i686' 'x86_64')
+url="http://www.tntnet.org/cxxtools.html"
+license=('LGPL')
+depends=('gcc-libs' 'sh')
+makedepends=('git')
+provides=('cxxtools')
+conflicts=('cxxtools')
+source=("$pkgname::git+https://github.com/maekitalo/${pkgname%-git}.git")
+sha256sums=('SKIP')
+
+pkgver() {
+  cd "$pkgname"
+  git describe --long | sed 's/^V//' | sed 's/-/.r/;s/-/./'
+}
 
 build() {
-  cd "${srcdir}/${pkgname}-${pkgver}"
+  cd "$pkgname"
 
-  ./configure --prefix=/usr \
-              --disable-static \
-              --disable-demos \
-              --disable-unittest
+  autoreconf -i
+  ./configure --prefix=/usr --disable-static --disable-demos --disable-unittest
   make
 }
 
 package() {
-  cd "${srcdir}/${pkgname}-${pkgver}"
-  make DESTDIR="${pkgdir}" install
+  cd "$pkgname"
+
+  make DESTDIR="$pkgdir/" install
 }
